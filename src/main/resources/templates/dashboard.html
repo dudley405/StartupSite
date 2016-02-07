@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" ng-app="mainModule">
 <head th:include="_head :: imports">
 
 </head>
-<body>
-    <h1>Welcome!</h1>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <form class="navbar-form" th:action="@{/logout}" method="post">
+        <button class="btn btn-sm btn-danger navbar-right" type="submit">Logout</button>
+        </form>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="wrapper">
+        <h1>Welcome</h1>
+    </div>
+</div>
 
 </body>
 </html>

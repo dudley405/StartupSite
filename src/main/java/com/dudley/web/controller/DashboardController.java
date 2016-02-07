@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class DashboardController {
 
-    @RequestMapping(value="/Dashboard", method= RequestMethod.POST)
+    @RequestMapping(value="/Dashboard", method= RequestMethod.GET)
     String dashboard() {
         return "dashboard";
     }
