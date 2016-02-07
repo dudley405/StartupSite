@@ -10,25 +10,26 @@
         <form name="signinForm" class="form-signin" th:action="@{/login}" method="post" novalidate>
             <h2 class="form-signin-heading">Login</h2>
 
-            <div th:if="${param.logout}">
-                You have been logged out.
-            </div>
-
             <div class="form-group"
                  ng-class="{ 'has-error' : signinForm.email.$invalid && !signinForm.email.$pristine }">
                 <input type="email" class="form-control" name="email" ng-model="user.email" placeholder="Email Address"
                        autofocus="" required/>
 
-                <p ng-show="signinForm.email.$invalid && !signinForm.email.$pristine" class="help-block">Enter a valid
+                <p ng-show="signinForm.email.$invalid && signinForm.email.$dirty" class="text-danger">Enter a valid
                     email</p>
             </div>
             <div class="form-group"
                  ng-class="{ 'has-error' : signinForm.password.$invalid && !signinForm.password.$pristine }">
                 <input type="password" class="form-control" name="password" ng-model="user.password"
                        placeholder="Password" required/>
-
-                <p ng-show="signinForm.password.$invalid && !signinForm.password.$pristine" class="help-block">You must
+                <p ng-show="signinForm.password.$invalid && signinForm.password.$dirty"  class="text-danger">You must
                     enter a password</p>
+                <div class="help-block" th:if="${param.logout}">
+                    <p ng-show="signinForm.password.$pristine && signinForm.email.$pristine" class="text-danger">You have been logged out.</p>
+                </div>
+                <div class="help-block" th:if="${param.error}">
+                    <p ng-show="signinForm.password.$pristine && signinForm.email.$pristine" class="text-danger">Either your username or password is incorrect.</p>
+                </div>
             </div>
             <label class="checkbox">
                 <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
