@@ -36,7 +36,7 @@ public class StartupSiteConfiguration extends WebSecurityConfigurerAdapter {
                 .loginPage("/")
                 .permitAll()
                 .usernameParameter("email")
-                .defaultSuccessUrl("/Dashboard")
+                .defaultSuccessUrl("/Dashboard#/Home")
                 .loginProcessingUrl("/login")
                 .and()
                 .logout()

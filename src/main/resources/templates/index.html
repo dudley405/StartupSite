@@ -1,12 +1,12 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org" ng-app="mainModule">
-<head th:include="_head :: imports">
+<head th:include="partials/_head :: imports">
 
 </head>
 <body>
 <div ng-controller="signinController">
-    <div class="wrapper">
+    <div class="signin-wrapper">
         <form name="signinForm" class="form-signin" th:action="@{/login}" method="post" novalidate>
             <h2 class="form-signin-heading">Login</h2>
 
@@ -31,14 +31,14 @@
                     <p ng-show="signinForm.password.$pristine && signinForm.email.$pristine" class="text-danger">Either your username or password is incorrect.</p>
                 </div>
             </div>
-            <label class="checkbox">
-                <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
-            </label>
             <button class="btn btn-lg btn-primary btn-block" type="submit" ng-disabled="signinForm.$invalid">Login
             </button>
         </form>
     </div>
 </div>
+
+<div th:include="partials/_angular :: angular"></div>
+
 </body>
 </html>
 

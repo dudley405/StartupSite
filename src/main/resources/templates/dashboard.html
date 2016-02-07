@@ -1,21 +1,71 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org" ng-app="mainModule">
-<head th:include="_head :: imports">
+<head th:include="partials/_head :: imports">
 
 </head>
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <form class="navbar-form" th:action="@{/logout}" method="post">
-        <button class="btn btn-sm btn-danger navbar-right" type="submit">Logout</button>
-        </form>
+<body>
+<!-- HEADER AND NAVBAR -->
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <span class="navbar-brand">Startup Site</span>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form class="navbar-form" th:action="@{/logout}" method="post">
+                        <button class="btn btn-sm btn-danger" type="submit">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li>
+                <a href="#/Home">Home</a>
+            </li>
+            <li>
+                <a href="#Shortcuts">Shortcuts</a>
+            </li>
+            <li>
+                <a href="#">Overview</a>
+            </li>
+            <li>
+                <a href="#">Events</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Services</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
     </div>
-</nav>
-<div class="container-fluid">
-    <div class="wrapper">
-        <h1>Welcome</h1>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div ng-view></div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+<div th:include="partials/_angular :: angular"></div>
 
 </body>
 </html>
