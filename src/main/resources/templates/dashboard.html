@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org" ng-app="mainModule">
-<head th:include="partials/_head :: imports">
+<head>
 
 </head>
-<body>
+<body ng-controller="mainController">
 <!-- HEADER AND NAVBAR -->
 <header>
     <nav class="navbar navbar-default">
@@ -24,15 +24,14 @@
     </nav>
 </header>
 <div id="wrapper">
-
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li>
-                <a href="#/Home">Home</a>
+                <a ng-class="getClass('/Home')"  href="#/Home">Home</a>
             </li>
             <li>
-                <a href="#Shortcuts">Shortcuts</a>
+                <a ng-class="getClass('/Shortcuts')"  href="#Shortcuts">Shortcuts</a>
             </li>
             <li>
                 <a href="#">Overview</a>

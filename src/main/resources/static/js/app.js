@@ -1,8 +1,13 @@
 var app = angular.module('mainModule', ['ui.bootstrap','ngAnimate', 'ngRoute']);
 
-app.controller('signinController', function ($scope, $http) {
-
-
+app.controller('mainController', function ($scope, $http, $location) {
+    $scope.getClass = function (path) {
+      if ($location.path().substr(0, path.length) === path) {
+        return 'active';
+      } else {
+        return '';
+      }
+    }
 });
 
 app.config(function($routeProvider) {

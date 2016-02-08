@@ -1,14 +1,14 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org" ng-app="mainModule">
-<head th:include="partials/_head :: imports">
+<head>
 
 </head>
 <body>
-<div ng-controller="signinController">
+<div ng-controller="mainController">
     <div class="signin-wrapper">
         <form name="signinForm" class="form-signin" th:action="@{/login}" method="post" novalidate>
-            <h2 class="form-signin-heading">Login</h2>
+            <h4 class="form-signin-heading">Login or <a href="/signup">sign up</a></h4>
 
             <div class="form-group"
                  ng-class="{ 'has-error' : signinForm.email.$invalid && !signinForm.email.$pristine }">
