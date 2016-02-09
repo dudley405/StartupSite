@@ -10,11 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class DashboardController {
 
-    @RequestMapping(value="/default", method= RequestMethod.GET)
-       String defaultPage() {
-        return "partials/_default";
-    }
-
     @RequestMapping(value="/Dashboard", method= RequestMethod.GET)
     String dashboard() {
         return "dashboard";
